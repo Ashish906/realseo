@@ -1,10 +1,10 @@
+'use client'
 import { Poppins } from 'next/font/google'
-import './globals.css'
-import AppBar from '@/components/AppBar'
-import Footer from '@/components/Footer'
+
+import '@/app/globals.css'
+import { AppBar, Footer } from '@/components'
 
 const poppins = Poppins({ subsets: ['latin'], weight: '400' })
-
 
 export default function RootLayout({ children }) {
   return (

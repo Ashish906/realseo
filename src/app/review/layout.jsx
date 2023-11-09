@@ -1,5 +1,18 @@
-export default function () {
+import { Box, Stack } from '@mui/material'
+
+import { ReviewButtons, SearchReview } from '@/components'
+import { BodyWrapper } from '@/components/common'
+
+export default function ({ children }) {
     return (
-        <>I am 2 nd header</>
+        <>
+            <Stack sx={{ mx: '2.63rem', my: '1.75rem' }} direction='row' justifyContent='space-between'>
+                <ReviewButtons />
+                <SearchReview />
+            </Stack>
+            <BodyWrapper>
+                { children }
+            </BodyWrapper>
+        </>
     )
 }
