@@ -1,8 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import { Accordion, AccordionSummary, Box, Container, Toolbar, Typography } from '@mui/material';
-import { Adb, ExpandMore, SettingsApplicationsSharp } from '@mui/icons-material'
+import { Box, Container, Stack, Button, Toolbar, Typography, Grid, IconButton } from '@mui/material';
+import { Adb, SettingsApplicationsSharp } from '@mui/icons-material'
+
+import { FirstNavIcon, SettingsIcon } from '@/icons'
 
 import AppBar from '@mui/material/AppBar';
 
@@ -11,27 +13,21 @@ export default function () {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#86937F' }}>
       <Container maxWidth="100%">
-        <Toolbar disableGutters>
-            <Box sx={{flexGrow: 1}}>
-                <Image alt="Comapany logo" src="/company_logo.png" style={{ borderRadius: 6, margin: '11px 0px 5px 0px' }} width={ 246 } height={64} />
+        <Stack justifyContent='space-between' direction='row'>
+          <img alt="Comapany logo" src="/company_logo.png" style={{ borderRadius: 5, margin: '.813rem 0rem .813rem 0.48rem', width: '15.38rem', height: '4rem' }} />
+          <Stack direction='row' justifyContent='space-between' alignItems='center' spacing={2.5}>
+            <IconButton sx={{ backgroundColor: '#4D5746', borderRadius: 1, width: '2.1rem', height: '2.13rem' }}>
+              <FirstNavIcon />
+            </IconButton>
+            <IconButton sx={{ backgroundColor: '#4D5746', borderRadius: 1, width: '2.1rem', height: '2.13rem' }}>
+              <SettingsIcon />
+            </IconButton>
+            <Box display='flex' justifyContent='center' alignItems='center'>
+              <img alt="Profile pic" src="/profile_pic.png" style={{ borderRadius: 1, width: '2.1rem', height: '2.13rem' }} />
+              <Typography sx={{ ml: '.5rem' }}>David K. Croxton</Typography>
             </Box>
-            <Box sx={{ backgroundColor: '#4D5746', width: '33px', height: '34px', borderRadius: 1, mr: 2 }} display='flex' alignItems='center' justifyContent='center'>
-                <Adb sx={{ width: '16px', height: '17px' }}/>
-            </Box>
-            <Box sx={{ backgroundColor: '#4D5746', width: '33px', height: '34px', borderRadius: 1, mr: 2 }} display='flex' alignItems='center' justifyContent='center'>
-                <SettingsApplicationsSharp sx={{ width: '16px', height: '17px' }} />
-            </Box>
-            <Image alt="Comapany logo" src="/profile_pic.png" style={{ borderRadius: 5 }} width={33} height={34} />
-            {/* <Accordion sx={{ backgroundColor: '#86937F', color: 'white', border: 'none', boxShadow: 'none', width: 'auto' }}>
-                <AccordionSummary
-                    expandIcon={<ExpandMore color='white' />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                > */}
-                    <Typography>David K. Croxton</Typography>
-                {/* </AccordionSummary>
-            </Accordion> */}
-        </Toolbar>
+          </Stack>
+        </Stack>
       </Container>
     </AppBar>
   );
