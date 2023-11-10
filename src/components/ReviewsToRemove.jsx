@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import {
     Button,
+    Checkbox,
     TableContainer,
     Table,
     TableHead,
@@ -22,15 +23,18 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { ChevronLeft, ChevronRight } from '@mui/icons-material'
 
 import { styled } from '@mui/material/styles'
+import '@/css/dataTable.css'
 
 const StyledTableCell = styled(TableCell)(() => ({
     [`&.${tableCellClasses.head}`]: {
         fontSize: '1.13rem',
-        fontWeight: '550'
+        fontWeight: '550',
+        paddingLeft: '2.19rem'
     },
     [`&.${tableCellClasses.body}`]: {
         fontSize: '1rem',
-        fontWeight: '450'
+        fontWeight: '450',
+        paddingLeft: '2.19rem'
     },
 }));
 
@@ -48,7 +52,8 @@ export default function () {
             reviewer: 'Dina N. Hamilton',
             review: "You'll get the most out of this guide if your desire to learn search engine optimization (SEO) is exceeded only by your willingness to execute and test concepts.",
             link: 'Link will be Here',
-            rate: 4
+            rate: 4,
+            isChecked: true
         },
         {
             reviewer: 'Elizabeth B. Frechette',
@@ -66,7 +71,8 @@ export default function () {
             reviewer: 'Jack M. Blackwell',
             review: "Creative Niloy is a best seo service provider in Bangladesh. We are offering professional web design and seo services like web search engine.",
             link: "Link will be Here",
-            rate: 4
+            rate: 4,
+            isChecked: true
         },
         {
             reviewer: 'Mary W. Nicodemus',
@@ -152,7 +158,12 @@ export default function () {
                                                 <TableRow key={index}>
                                                     <StyledTableCell>{item.reviewer}</StyledTableCell>
                                                     <StyledTableCell>{item.review}</StyledTableCell>
-                                                    <StyledTableCell><Link href={item.link}>Link will be here</Link></StyledTableCell>
+                                                    <StyledTableCell>
+                                                        <Stack direction='row' alignItems='center'>
+                                                            <Checkbox defaultChecked={!!item.isChecked} color="default" sx={{ '& .MuiSvgIcon-root': { fontSize: '1.2rem' } }} />
+                                                            <Link href={item.link} style={{ textDecorationColor: 'black', color: 'black' }}>Link will be here</Link>
+                                                        </Stack>
+                                                    </StyledTableCell>
                                                     <StyledTableCell><Rating name="read-only" value={item.rate} readOnly /></StyledTableCell>
                                                     <StyledTableCell>
                                                         <Button variant="contained" sx={{ backgroundColor: '#006A00', width: '11rem', height: '2.69rem' }}>
@@ -172,9 +183,9 @@ export default function () {
                                         labelId="demo-customized-select-label"
                                         id="demo-customized-select"
                                         value={10}
-                                        sx={{ height: '1.81rem', width: '3.25rem', fontSize: '0.875rem' }}
+                                        sx={{ height: '1.81rem', fontSize: '0.875rem', width: '3.25rem', backgroundColor: '#E9E9E9', borderWidth: 0 }}
                                     >
-                                        <MenuItem value={10}>10</MenuItem>
+                                        <MenuItem selected value={10}>10</MenuItem>
                                         <MenuItem value={20}>20</MenuItem>
                                         <MenuItem value={30}>30</MenuItem>
                                     </Select>
@@ -195,7 +206,8 @@ export default function () {
                                                         backgroundColor: `${item.isActive ? '#86937F' : 'none'}`,
                                                         fontSize: '0.875rem',
                                                         fontWeight: '600',
-                                                        color: 'black'
+                                                        color: 'black',
+                                                        boxShadow: 'none'
                                                     }}
                                                 >
                                                     {item.value}

@@ -1,4 +1,12 @@
+.active-review-button {
+    background-color: '#86937F';
+    box-shadow: 'none';
+    border-radius: '.313rem';
+}
+
 .review-button {
-    height: '3.69rem';
-    width: '15.1rem';
+    background-color: '#D4D4D4';
+    color: "#86937F";
+    border-radius: '.313rem';
+    box-shadow: 'none';
 }
